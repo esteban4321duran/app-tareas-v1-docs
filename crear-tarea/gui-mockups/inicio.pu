@@ -2,7 +2,6 @@
 caption vista menú principal 
 {
     {+
-        vista menu principal v2
         [crear tarea]
         [ver tareas del mes]
 
