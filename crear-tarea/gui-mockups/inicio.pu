@@ -1,0 +1,17 @@
+@startsalt
+caption vista menú principal 
+{
+    {+
+        [crear tarea]
+        [ver tareas del mes]
+
+        tareas del día: sábado 20/12/2025
+
+        {+
+            * 9:00 Ir a la escuela
+            * 11:00 Ir al banco
+        }
+
+    }
+}
+@endsalt

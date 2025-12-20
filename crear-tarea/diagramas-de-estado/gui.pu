@@ -1,0 +1,9 @@
+@startuml
+title estados GUI
+
+[*] --> Inicio
+Inicio -> FormCrearTarea: Crear tarea
+FormCrearTarea -> Inicio: Aceptar
+FormCrearTarea -> Inicio: Cancelar
+
+@enduml

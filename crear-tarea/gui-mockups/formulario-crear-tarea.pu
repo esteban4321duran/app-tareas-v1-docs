@@ -1,0 +1,24 @@
+@startsalt
+caption vista formulario crear tarea
+{
+    {+
+        título (requerido): | "Comprar verduras"
+
+        contenido(opcional):
+        {
+            S
+            escribí aquí lo que tenés que hacer.
+            .
+            .
+        }
+
+        fecha de inicio (opcional): | "05/01/2026 13:30"
+        [seleccionar fecha y hora<&calendar>]
+
+        fecha límite (opcional): | "          "
+        [seleccionar fecha y hora<&calendar>]
+
+        [aceptar] | [cancelar]
+    }
+}
+@endsalt
