@@ -2,14 +2,11 @@
 caption vista menu principal. Tarea creada
 {
     {+
+        {/ tareas del día |<u><color:blue> tareas del mes }
         [crear tarea]
-        [ver tareas del mes]
-
-        tareas del día: sábado 20/12/2025
-
+        fecha actual: lunes 20/12/2025
+        [tareas del día: lunes 05/01/2026 <&calendar>]
         {+
-            * 9:00 Ir a la escuela
-            * 11:00 Ir al banco
             * 13:30 Comprar verduras
         }
 

@@ -4,19 +4,16 @@ caption vista formulario crear tarea
     {+
         título (requerido): | "Comprar verduras"
 
-        contenido(opcional):
-        {
-            S
-            escribí aquí lo que tenés que hacer.
-            .
+        detalles (opcional):
+        {S
+            <color:gray>Agregá más detalles sobre 
+            <color:gray>lo que tenés que hacer.
             .
         }
 
-        fecha de inicio (opcional): | "05/01/2026 13:30"
-        [seleccionar fecha y hora<&calendar>]
-
-        fecha límite (opcional): | "          "
-        [seleccionar fecha y hora<&calendar>]
+        Fecha y hora (requerido)| ["05/01/2026 13:30"<&calendar>]
+        <color:gray>Seleccioná la fecha y hora de la
+        <color:gray>actividad o la fecha y hora de entrega
 
         [aceptar] | [cancelar]
     }

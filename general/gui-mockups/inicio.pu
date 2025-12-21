@@ -2,16 +2,16 @@
 caption vista menú principal 
 {
     {+
+        {/ tareas del día |<u><color:blue> tareas del mes }
         [crear tarea]
-        [ver tareas del mes]
-
-        tareas del día: sábado 20/12/2025
-
-        {+
-            * 9:00 Ir a la escuela
-            * 11:00 Ir al banco
+        fecha actual: lunes 20/12/2025
+        [tareas del día: lunes 20/12/2025 <&calendar>]
+        {SI
+            {+
+                * 9:00 Ir a la escuela
+                * 11:15 Ir al banco
+            }
         }
-
     }
 }
 @endsalt

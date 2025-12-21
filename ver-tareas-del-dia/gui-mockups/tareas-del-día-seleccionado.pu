@@ -2,11 +2,12 @@
 caption vista menu principal tareas del día seleccionado
 {
 {+
-[crear tarea]
-[ver tareas del mes]
+        {/ tareas del día |<u><color:blue> tareas del mes }
+        [crear tarea]
+fecha actual: Domingo 26/12/2025
 [tareas del día: Domingo 26/12/2025 <&calendar>]
    {+
-        * 18:00-20:00 Entregar vestido
+        * 20:00 Entregar vestido
    }
    
 }

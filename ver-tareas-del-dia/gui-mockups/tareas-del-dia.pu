@@ -2,8 +2,10 @@
 caption vista seleccionar día para ver tareas
 {
     {+
+        {/ tareas del día |<u><color:blue> tareas del mes }
         [crear tarea]
-        [ver tareas del mes]
+        
+        fecha actual: lunes 20/12/2025
         [tareas del día: lunes 20/12/2025 <&calendar>]
         {+
             {+
