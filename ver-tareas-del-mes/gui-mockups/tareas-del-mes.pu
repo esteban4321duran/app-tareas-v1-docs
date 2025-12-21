@@ -1,26 +1,32 @@
 @startsalt
-caption vista seleccionar día para ver tareas
+caption vista seleccionar mes para ver tareas
 {
     {+
+        {/ <u><color:blue>tareas del día | tareas del mes }
         [crear tarea]
-        [ver tareas del mes]
-        [tareas del día: lunes 20/12/2025 <&calendar>]
-        {+
             {+
                 [<&arrow-thick-left>]|**Diciembre 2025**|[<&arrow-thick-right>]|
             }
-            {#
-                D | L | M | M | J | V | S
-                . | . | . | 1 |<b><u><color:blue>2 | 3 | 4
-                5 | 6 | 7 | 8 | 9 | 10 | 11
-                12 | 13 | 14 | 15 |<b><u><color:blue>16 | 17 | 18
-                19 |<b><u><color:blue>20 | 21 | 22 | 23 | 24 | 25
-                [X]<b><u><color:blue>26 | 27 | 28 | 29 | 30 | 31 | .
+            {SI
+                {#
+                    Mié 15 | . 
+                    <b><color:blue> Jue 16 | {
+                        * 17:00 Comprar comida para el perro | [Editar] | [Quitar]
+                        }
+                    Vie 17 | . 
+                    Sáb 18 | .
+                    Dom 19 | .
+                    <b><color:blue>Lun 20 | {
+                        * 9:00 Ir a la facultad | [Editar] | [Quitar]
+                        * 11:00 Ir al banco | [Editar] | [Quitar]
+                        }
+                    Mar 21 | .
+                    Mié 22 | .
+
+                }
             }
-            Referencia:
+            referencia:
             *<b><color:blue>Tiene tareas
-            [Cancelar] | [Aceptar]
-        }
     }
 }
 @endsalt
