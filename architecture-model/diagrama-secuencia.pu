@@ -1,0 +1,40 @@
+@startuml diagrama de secuencia
+title Diagrama de secuencia - Crear Tarea
+hide empty members
+skinparam style strictuml
+
+participant HonoApp as A
+participant MiddlewareAutenticacion as B
+participant MiddlewareValidacion as C
+participant Controller as D
+participant AdministradorTareas as E
+participant RepositorioTareas as F
+participant conexionBaseDatos as G
+database BaseDatos as H
+
+-> A: POST /tareas
+note over B, D
+Patrón Chain of responsibility. Los middlewares son handlers
+que se van pasando un objeto que representa la petición HTTP. 
+Cada handler tiene una responsabilidad distinta y realiza
+algún procesamiento sobre la petición. 
+
+Los handlers pueden interrumpir la cadena si algo sale mal.
+Por ej: si el middleware de validación detecta que el usuario
+envió un dato obligatorio.
+end note
+A -> B: next()
+B -> C: next()
+C -> D: next() 
+D -> E: crearTarea() 
+D <-- E: tareaCreada
+D -> F: insert(tarea)
+F -> G: insert(TAREAS).values(tarea).returning()
+G -> H: sql insert returning
+G <-- H: RegistroTarea
+F <-- G: FilaTarea
+E <-- F: Tarea
+D <-- E: Tarea
+<-- D: HTML
+
+@enduml

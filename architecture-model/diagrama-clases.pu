@@ -1,0 +1,76 @@
+@startuml diagrama de clases
+title Diagrama de clases
+hide empty members
+skinparam style strictuml
+
+
+class "<<Entity>>\nTarea" as T {
+    id?: number
+    titulo: string
+    detalles: string
+    fechaHora: DateTime
+} 
+
+note right of T::id 
+La identidad unívoca de todas las Entidades del modelo del
+dominio será representada mediante un ID numérico.
+El ID es un atributo opcional porque la capa de persistencia
+tendrá la responsabilidad de asignarlo.
+end note
+
+note right of T::fechaHora 
+Para fechas y horas se utilizará la librería Day.js
+end note
+
+class "<<Entity>>\nUsuario" as U{
+    id?: number
+    email: string
+    nombres: string
+    apellidos: string
+}
+
+class "<<Entity>>\nOwnership" as O{
+    id?: number
+    tareaId: number
+    usuarioId: number
+}
+
+note left of O
+Las Entidades del dominio se implementarán mediante interfaces TypeScript
+endnote
+
+O --> U
+O --> T
+
+class "<<interface>>\nAdministradorTareas" as AT{
+    crearTarea(titulo, fechaHora, detalles?): Tarea
+    modificarTarea(tarea, titulo, fechaHora, detalles?): Tarea
+    quitarTarea(tarea): Tarea
+}
+note bottom of AT
+Contrato de servicio de la capa del dominio. Responsable de las 
+operaciones sobre Tareas.
+
+Se implementará mediante funciones exportadas desde un módulo TypeScript
+endnote
+
+AT .u.> T
+
+class "<<interface>>\nRepositorioTareas" as RT{
+    insert(tarea): Tarea 
+    update(tarea): Tarea 
+    logicalDelete(tarea): Tarea 
+    getTareasUsuario(usuario): Tarea[]
+    getTarea(id): Tarea
+    getTareasDia(usuario, fechaHora): Tarea[]
+    getTareasMes(usuario, fechaHora): Tarea[]
+}
+note bottom of RT
+Patrón repositorio. Contrato del repositorio de tareas.
+La capa de persistencia tiene la responsabilidad de implementarlo
+mediante funciones exportadas desde un módulo TypeScript.
+end note
+
+RT .u.> T
+
+@enduml
