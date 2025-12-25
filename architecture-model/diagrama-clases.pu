@@ -59,7 +59,7 @@ AT .u.> T
 class "<<interface>>\nRepositorioTareas" as RT{
     insert(tarea): Tarea 
     update(tarea): Tarea 
-    logicalDelete(tarea): Tarea 
+    delete(tarea): Tarea 
     getTareasUsuario(usuario): Tarea[]
     getTarea(id): Tarea
     getTareasDia(usuario, fechaHora): Tarea[]
@@ -70,7 +70,23 @@ Patrón repositorio. Contrato del repositorio de tareas.
 La capa de persistencia tiene la responsabilidad de implementarlo
 mediante funciones exportadas desde un módulo TypeScript.
 end note
+note right of RT::delete
+Baja lógica. Nunca borramos nada de la BD
+end note
+
+class "FilaTarea" as FT{
+    id?: number
+    titulo: string
+    detalles: string
+    fechaHora: DateTime
+    borradoEn: DateTime
+}
+note top of FT
+Este tipo de clases se utilizarán para implementar las responsabilidades
+de la capa de persistencia.
+end note
 
 RT .u.> T
+RT .u.> FT
 
 @enduml
