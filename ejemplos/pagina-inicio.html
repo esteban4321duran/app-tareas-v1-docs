@@ -1,0 +1,20 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    const urlServidor = "https://148029340:47382/notificaciones"
+
+    const notificaciones = fetch(urlServidor);
+
+    notificaciones.array.forEach(notificacion => {
+        esperarYAvisarAlUsuario();
+    });
+</script>
+
+</html>

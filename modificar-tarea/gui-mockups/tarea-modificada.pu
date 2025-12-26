@@ -1,0 +1,15 @@
+@startsalt
+caption vista menu principal. Tarea modificada
+{
+    {+
+        {/ tareas del día |<u><color:blue> tareas del mes }
+        [crear tarea]
+        fecha actual: lunes 20/12/2025
+        [tareas del día: lunes 05/01/2026 <&calendar>]
+        {+
+            * 12:00 Comprar verduras y frutas
+        }
+
+    }
+}
+@endsalt

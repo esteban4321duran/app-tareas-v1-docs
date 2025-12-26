@@ -1,0 +1,21 @@
+@startsalt
+caption vista formulario modificar tarea
+{
+    {+
+        título (requerido): | "Comprar verduras y frutas"
+
+        detalles (opcional):
+        {S
+            <color:gray>Agregá más detalles sobre 
+            <color:gray>lo que tenés que hacer.
+            .
+        }
+
+        Fecha y hora (requerido)| ["05/01/2026 12:00"<&calendar>]
+        <color:gray>Seleccioná la fecha y hora de la
+        <color:gray>actividad o la fecha y hora de entrega
+
+        [aceptar] | [cancelar]
+    }
+}
+@endsalt
