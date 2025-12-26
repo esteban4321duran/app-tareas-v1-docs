@@ -1,0 +1,13 @@
+@startuml architecture-conceptual-view
+title Vista conceptual de la arquitectura
+hide empty members
+skinparam style strictuml
+
+class BaseDeDatos
+class AppWeb
+class NavegadorWeb
+
+AppWeb -u- BaseDeDatos
+AppWeb -d- NavegadorWeb
+
+@enduml

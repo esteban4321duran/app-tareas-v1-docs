@@ -1,0 +1,46 @@
+@startuml diagrama compoentnes
+title Diagrama de componentes
+hide empty members
+skinparam style strictuml
+
+package ServiciosDistribuidos {
+    () "API REST Tareas" as API
+    [AppWeb]
+}
+package CapaAplicacion {
+    () "Escenarios" as US
+    [Controller]
+}
+package CapaDominio {
+    () "AdministradorTareas" as AT
+    [ModeloDominio]
+}
+note bottom of AT
+Contrato de servicio de la capa del dominio. Responsable de las 
+operaciones sobre Tareas.
+
+Se implementará mediante funciones exportadas desde un módulo TypeScript
+endnote
+
+package CapaPersistencia {
+    () "RepositorioTareas" as RT
+    [Persistencia]
+}
+note bottom of RT
+Patrón repositorio. Contrato del repositorio de tareas.
+La capa de persistencia tiene la responsabilidad de implementarlo
+mediante funciones exportadas desde un módulo TypeScript.
+end note
+
+AppWeb -- API: ofrece
+AppWeb ..> HTTPS: utiliza
+AppWeb ..> US: utiliza
+Controller -- US: ofrece
+Controller ..> AT: utiliza
+Controller ..> RT: utiliza
+
+ModeloDominio -- AT: ofrece
+Persistencia -- RT: ofrece
+
+
+@enduml

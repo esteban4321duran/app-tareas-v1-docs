@@ -1,0 +1,55 @@
+@startuml diagrama paquetes
+title Diagrama de paquetes
+hide empty members
+skinparam style strictuml
+
+package ServiciosDistribuidos {
+
+}
+note bottom of ServiciosDistribuidos
+lógica de rutas web, autenticación, validación 
+end note
+
+package CapaTransversal {
+    package Hono {}
+    package Logging{}
+    package Seguridad{}
+}
+package CapaAplicacion {
+    package Controllers {}
+    package SchemasZod {}
+}
+note top of Controllers
+módulo TypeScript que implementa los diferentes
+escenarios
+end note
+note bottom of SchemasZod
+Se utilizará la librería Zod para validación 
+de datos (Patrón Data Transfer Object)
+end note
+
+package CapaDominio {
+    class Tarea
+    class Ownership
+    class Usuario
+}
+package CapaPersistencia {
+    class FilaTarea
+    class FilaOwnership
+    class FilaUsuario
+    package DrizzleORM{}
+}
+
+CapaTransversal ..> CapaDominio
+
+ServiciosDistribuidos ..> CapaTransversal
+ServiciosDistribuidos ..> CapaAplicacion
+
+CapaAplicacion ..> CapaTransversal
+CapaAplicacion ..> CapaDominio
+CapaAplicacion ..> CapaPersistencia
+
+CapaPersistencia ..> CapaTransversal
+CapaPersistencia ..> CapaDominio
+
+@enduml
