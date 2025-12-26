@@ -31,8 +31,8 @@ class "<<Entity>>\nUsuario" as U{
 
 class "<<Entity>>\nOwnership" as O{
     id?: number
-    tareaId: number
-    usuarioId: number
+    tarea: Tarea
+    usuario: Usuario
 }
 
 note left of O
@@ -47,12 +47,6 @@ class "<<interface>>\nAdministradorTareas" as AT{
     modificarTarea(tarea, titulo, fechaHora, detalles?): Tarea
     quitarTarea(tarea): Tarea
 }
-note bottom of AT
-Contrato de servicio de la capa del dominio. Responsable de las 
-operaciones sobre Tareas.
-
-Se implementará mediante funciones exportadas desde un módulo TypeScript
-endnote
 
 AT .u.> T
 
@@ -65,11 +59,6 @@ class "<<interface>>\nRepositorioTareas" as RT{
     getTareasDia(usuario, fechaHora): Tarea[]
     getTareasMes(usuario, fechaHora): Tarea[]
 }
-note bottom of RT
-Patrón repositorio. Contrato del repositorio de tareas.
-La capa de persistencia tiene la responsabilidad de implementarlo
-mediante funciones exportadas desde un módulo TypeScript.
-end note
 note right of RT::delete
 Baja lógica. Nunca borramos nada de la BD
 end note
