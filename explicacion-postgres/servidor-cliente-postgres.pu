@@ -1,0 +1,14 @@
+@startuml servidor-cliente-postgres
+hide empty members
+skinparam style strictuml
+
+
+package TuComputadora{
+class ServidorPostgres
+class ClienteTerminal
+class ClienteGUI
+}
+
+ServidorPostgres <--> ClienteTerminal
+ServidorPostgres <--> ClienteGUI
+@enduml
